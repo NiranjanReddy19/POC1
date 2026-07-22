@@ -4,21 +4,13 @@ trigger:
       - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'Default'   # the self-hosted agent pool from Step 2
 
 steps:
+  - checkout: self
 
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: 'UbuntuVM'
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: '**'
-    targetFolder: '/tmp/sample-app'
-
-- task: SSH@0
-  inputs:
-    sshEndpoint: 'UbuntuVM'
-    runOptions: 'commands'
-    commands: |
-      sudo cp /tmp/sample-app/index.html /var/www/html/index.html
-      sudo systemctl restart nginx
+  - script: |
+      echo "Deploying index.html to nginx web root"
+      sudo cp $(Build.SourcesDirectory)/index.html /var/www/html/index.html
+      sudo systemctl reload nginx
+    displayName: 'Deploy to Nginx'
