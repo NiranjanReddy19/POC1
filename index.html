@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Azure DevOps Demo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Static Website Demo</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<h1>Application Deployed Successfully</h1>
-<h2>successfully deployed an application on Nginx server</h2>
+  <div class="container">
+    <section class="hero">
+      <h1>Welcome to My Static Website</h1>
+      <p>This is a clean, responsive static website created with HTML, CSS, and JavaScript.</p>
+      <a href="#features" class="btn" id="ctaButton">Explore More</a>
+      <p id="message"></p>
+    </section>
+
+    <section id="features" class="grid">
+      <div class="card">
+        <h3>Simple</h3>
+        <p>Easy to understand and quick to deploy.</p>
+      </div>
+      <div class="card">
+        <h3>Responsive</h3>
+        <p>Looks good on desktops, tablets, and mobile screens.</p>
+      </div>
+      <div class="card">
+        <h3>Fast</h3>
+        <p>No backend is required, so it loads instantly.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Static Website Example</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
